@@ -1,4 +1,4 @@
-# Space Shooter: Godot 4 Crash Course
+# Space Shooter
 
 ![splashscreen.jpg](assets/splashscreen.jpg)
 
