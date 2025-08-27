@@ -1,8 +1,6 @@
 # Space Shooter: Godot 4 Crash Course
 
-![splashscreen.jpg](/home/fra/Code/Godot/spaceshooter/assets/splashscreen.jpg)
-
-
+![splashscreen.jpg](assets/splashscreen.jpg)
 
 This project is the result of following the course available at:
 [Godot 4 Crash Course #1 - The Basics - YouTube](https://www.youtube.com/watch?v=q7wlSvt0JIc)
