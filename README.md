@@ -1,9 +1,17 @@
 # Space Shooter: Godot 4 Crash Course
 
+![splashscreen.jpg](/home/fra/Code/Godot/spaceshooter/assets/splashscreen.jpg)
+
+
+
 This project is the result of following the course available at:
 [Godot 4 Crash Course #1 - The Basics - YouTube](https://www.youtube.com/watch?v=q7wlSvt0JIc)
 
 Many thanks to Net Ninja for the excellent tutorial.
+
+## Play
+
+The game has been exported as a playable web page here: [SpaceShooter](https://fillumina.github.io/spaceshooter/). Enjoy!
 
 ## Improvements
 
