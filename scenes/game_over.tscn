@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://c57yfjm675l8e"]
+
+[ext_resource type="Script" uid="uid://yp4upf6oqvwb" path="res://scenes/game_over.gd" id="1_wqhvx"]
+[ext_resource type="FontFile" uid="uid://y6ndxffqjng0" path="res://assets/pdark.ttf" id="1_xeevv"]
+[ext_resource type="PackedScene" uid="uid://cvt3nce7juo88" path="res://scenes/level.tscn" id="2_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://bfjr8b6jodmi6" path="res://assets/jeremy-thomas-4dpAqfTbvKA-unsplash.jpg" id="3_racf3"]
+[ext_resource type="Script" uid="uid://dokq067026xpp" path="res://scenes/name_dialog.gd" id="5_7m3ot"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+level_scene = ExtResource("2_tbwuq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -912.0
+offset_top = -619.0
+offset_right = 1008.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_racf3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -40.0
+offset_right = 99.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 14
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 34
+text = "Press space to start again"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -352.5
+offset_right = 352.5
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 87
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 47
+text = "Yout score is "
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BestScores" type="ItemList" parent="CenterContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+auto_width = true
+auto_height = true
+max_columns = 2
+same_column_width = true
+
+[node name="NameDialog" type="AcceptDialog" parent="."]
+title = "Insert your name champion!"
+initial_position = 1
+size = Vector2i(350, 150)
+visible = true
+script = ExtResource("5_7m3ot")
+
+[node name="CenterContainer" type="CenterContainer" parent="NameDialog"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 342.0
+offset_bottom = 101.0
+
+[node name="LineEdit" type="LineEdit" parent="NameDialog/CenterContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 20
+keep_editing_on_text_submit = true
+context_menu_enabled = false
+emoji_menu_enabled = false
+caret_blink = true
+caret_force_displayed = true
+
+[connection signal="confirmed" from="NameDialog" to="NameDialog" method="_on_confirmed"]
+[connection signal="text_submitted" from="NameDialog/CenterContainer/LineEdit" to="NameDialog" method="_on_line_edit_text_submitted"]

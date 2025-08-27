@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2cp11gytili7"]
+
+[ext_resource type="Script" uid="uid://q5pn804ekfh1" path="res://scenes/splash_screen.gd" id="1_4gp4q"]
+[ext_resource type="Texture2D" uid="uid://b15xybqy40re1" path="res://assets/splashscreen.jpg" id="1_hsxvm"]
+[ext_resource type="FontFile" uid="uid://y6ndxffqjng0" path="res://assets/pdark.ttf" id="2_4gp4q"]
+
+[sub_resource type="Animation" id="Animation_4gp4q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_hsxvm"]
+resource_name = "blinking"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.766667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1.6245, 0.392292),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mj2l"]
+_data = {
+&"RESET": SubResource("Animation_4gp4q"),
+&"blinking": SubResource("Animation_hsxvm")
+}
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gp4q")
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hsxvm")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 48.0
+offset_right = 533.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("2_4gp4q")
+theme_override_font_sizes/font_size = 68
+text = "Astrospace"
+
+[node name="AuthorLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 72.0
+offset_right = 1188.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("2_4gp4q")
+theme_override_font_sizes/font_size = 26
+text = "by fillumina"
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 966.0
+offset_top = 187.0
+offset_right = 1282.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 21
+select_mode = 2
+allow_reselect = true
+allow_search = false
+auto_width = true
+item_count = 8
+max_columns = 2
+same_column_width = true
+item_0/text = "arrows"
+item_0/selectable = false
+item_1/text = "move the ship"
+item_1/selectable = false
+item_2/text = "spacebar"
+item_2/selectable = false
+item_3/text = "fire"
+item_3/selectable = false
+item_4/text = "p"
+item_4/selectable = false
+item_5/text = "pause"
+item_5/selectable = false
+item_6/text = "q"
+item_6/selectable = false
+item_7/text = "quit"
+item_7/selectable = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -253.0
+offset_top = -40.0
+offset_right = 253.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 37
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4gp4q")
+theme_override_font_sizes/font_size = 33
+text = "press spacebar to start"
+
+[node name="Blinking" type="AnimationPlayer" parent="MarginContainer/Label"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_3mj2l")
+}
+autoplay = "blinking"

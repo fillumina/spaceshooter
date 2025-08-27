@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvbunu8o4jcq2"]
+
+[ext_resource type="Script" uid="uid://dtt0afb6ok3jo" path="res://scenes/rock_meteor.gd" id="1_pxso2"]
+[ext_resource type="Texture2D" uid="uid://btyl0douuurdr" path="res://assets/meteor.png" id="1_tcwo0"]
+
+[node name="RockMeteor" type="Area2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_pxso2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tcwo0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-29, -29, -11, -31, 33, -27, 40, 6, 19, 22, 0, 12, -30, 31, -49, 2)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
