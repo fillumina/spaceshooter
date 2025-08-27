@@ -1,7 +1,7 @@
 # Space Shooter: Godot 4 Crash Course
 
 This project is the result of following the course available at:
-[https://www.youtube.com/watch?v=q7wlSvt0JIc\&list=PL4cUxeGkcC9iHCXBpxbdsOByZ55Ez4bgF](https://www.youtube.com/watch?v=q7wlSvt0JIc&list=PL4cUxeGkcC9iHCXBpxbdsOByZ55Ez4bgF)
+[Godot 4 Crash Course #1 - The Basics - YouTube](https://www.youtube.com/watch?v=q7wlSvt0JIc)
 
 Many thanks to Net Ninja for the excellent tutorial.
 
