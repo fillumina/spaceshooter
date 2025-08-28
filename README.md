@@ -13,7 +13,7 @@ The game has been exported as a playable web page here: [SpaceShooter](https://f
 
 ## Improvements
 
-Several improvements have been added:
+The code has been extensively commented and several improvements have been added:
 
 * Initial page with blinking text (animated)
 * High scores using storage and custom classes (undocumented: press **C** to clear scores). Scores are stored locally.
